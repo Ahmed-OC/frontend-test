@@ -1,5 +1,8 @@
 import Image from "next/image";
 import ConversationMessage from "../../components/ConversationMessage";
+import backIcon from "../../assets/icons/back.svg";
+import Link from "next/link";
+import ConversationHeader from "../../components/ConversationHeader";
 
 interface Message {
   sender: string;
@@ -35,20 +38,10 @@ export default function Component() {
 
   return (
     <main className="container mx-auto p-6 space-y-8 flex flex-col justify-between min-h-screen">
-      <div>
-        <div className="flex items-center gap-3 mb-3">
-          <Image
-            alt="Leboncoin"
-            height={40}
-            src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?q=80&w=1985&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            width={40}
-            className="w-[40px] h-[40px] rounded-full object-cover"
-          />
-          <h1 className="text-3xl font-bold">Thibault</h1>
-        </div>
-        <div className="h-[1px] w-full bg-slate-500"></div>
-      </div>
-
+      <ConversationHeader
+        name="Jeremie"
+        imageSrc="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      />
       <div className="space-y-4">
         {messages.map((message, index) => (
           <ConversationMessage key={index} message={message} />
