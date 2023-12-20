@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Conversation } from "../types/conversation";
+import { getFormattedDate } from "../utils/getFormatDate";
 
 const HomeListConv = ({
   userId,
@@ -51,15 +52,9 @@ const HomeListConv = ({
             </div>
             <time
               className="text-sm text-gray-500 whitespace-nowrap"
-              dateTime="2023-12-18T20:00:00.000Z"
+              dateTime={getFormattedDate(conversation.lastMessageTimestamp)}
             >
-              {new Date(
-                conversation.lastMessageTimestamp * 1000
-              ).toLocaleDateString("en-EN", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "2-digit",
-              })}
+              {getFormattedDate(conversation.lastMessageTimestamp)}
             </time>
           </div>
         </Link>

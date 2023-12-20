@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Logo from "../assets/lbc-logo.webp";
 import styles from "../styles/Home.module.css";
-import Link from "next/link";
 import { getUserById } from "../api/users";
 import { getLoggedUserId } from "../utils/getLoggedUserId";
 import { User } from "../types/user";
@@ -19,6 +18,7 @@ export async function getStaticProps() {
     props: {
       user: user[0],
       conversations,
+      userId,
     },
   };
 }
@@ -26,12 +26,12 @@ export async function getStaticProps() {
 const Home = ({
   user,
   conversations,
+  userId
 }: {
   user: User;
   conversations: Conversation[];
+  userId: number;
 }): ReactElement => {
-  console.log(user);
-  const userId = 1;
   return (
     <div className={styles.container}>
       <Head>
@@ -47,7 +47,7 @@ const Home = ({
           <Image className="mx-auto my-8" src={Logo} alt="Leboncoin" height={200} width={200} />
           <div className="flex items-center gap-3 p-4 bg-gray-100">
             <Image className="rounded-full w-12 h-12" src={user.avatar} alt="Avatar" height={40} width={40} />
-            <h1 className="text-lg font-bold text-gray-900">Messages</h1>
+            <h1 className="text-lg font-bold text-gray-900">Conversations</h1>
           </div>   
           <HomeListConv userId={userId} conversations={conversations} />     
         </div>
