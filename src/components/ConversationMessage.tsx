@@ -28,9 +28,9 @@ const ConversationMessage: React.FC<ConversationMessageProps> = ({
         className="w-[48px] h-[48px] rounded-full object-cover"
       />
       <div className="bg-blue-100 rounded-lg p-3 max-w-sm">
-        <h3 className="font-semibold">{message.sender}</h3>
-        <p className="text-sm text-gray-700">{message.message}</p>
-        <p suppressHydrationWarning className="text-xs text-gray-500 mt-2">{message.time}</p>
+        <h3 aria-label={"Message de " + message.sender} tabIndex={0} className="font-semibold">{message.sender}</h3>
+        <p aria-label={message.message} tabIndex={0} className="text-sm text-gray-700">{message.message}</p>
+        <p aria-label={"Envoyé à " + message.time} tabIndex={0} suppressHydrationWarning className="text-xs text-gray-500 mt-2">{message.time}</p>
       </div>
     </div>
   );
