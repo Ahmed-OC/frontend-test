@@ -32,7 +32,10 @@ export async function getStaticProps({ params }) {
   const users: User[] = await getUsers();
   const user = users?.find((user: User) => user.id === userId);
   const conversationId: number = params.id;
-  const messages = await getMessagesByConversationId(conversationId, user.token);
+  const messages = await getMessagesByConversationId(
+    conversationId,
+    user.token
+  );
   console.log(messages);
   const conversations = await getConversationsByUserId(userId, user.token);
   const conversation = conversations?.find(
@@ -77,10 +80,11 @@ export default function Component({
   const [newMessage, setNewMessage] = useState("");
   const [messagesSerialized, setMessagesSerialized] =
     useState<MessageSerialized[]>(messages);
+    
   const handleSendMessage = async () => {
+    if (!newMessage) return;
     const timestamp = Math.floor(Date.now() / 1000);
     const user = users.find((user: User) => user.id === userId);
-
     const newMessageSerialized: MessageSerialized = {
       sender: user.nickname,
       message: newMessage,
