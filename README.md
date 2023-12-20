@@ -1,71 +1,64 @@
-# Context :
+<div align="center">
+  <h1>Test Frontend Leboncoin</h1>
+</div>
 
-At leboncoin, our users can share messages about a transaction, or ask for informations about any products.
+## Features
 
-Your job is to create the interface to consult those messages.
-The interface needs to work on both desktop & mobile devices.
+This repository is made with:
 
-In addition to your code, a README explaining your thought process and your choices would be appreciated.
+- ⚡️ Next.js
+- ⚛️ React
+- ✨ TypeScript
+- 💨 Tailwind CSS
 
-# Exercise :
+## Getting Started
 
-- Display a list of all the conversations
-- Allow the user to select a conversation
-  - Inside the conversation, there is a list of all the messages between these two users.
-  - As a user, you can type and send new messages in this conversation
+### 1. Clone the repo
 
-**As your application can be used by millions of users, make sure to provide some robust safety guards.**
+```bash
+git clone https://github.com/Ahmed-OC/frontend-test.git
+```
 
-### Sketches :
+### 2. Install dependencies
 
-Obvisouly, it is up to you to make something nice and pretty, you are free to design it the way you like. The sketches are here to give you an idea on how it should look.
+```bash
+npm install
+```
 
-<details>
-  <summary>Click to see the sketches</summary>
-  
-Mobile list :
+### 3. Populate `.env.local`:
 
-![](./sketches/list-mobile.jpg)
+```bash
+API_BASE_URL=http://localhost:3005
+```
 
-Desktop list :
+### 4. Run the development server
 
-![](./sketches/list-desktop.jpg)
+#### Front
+```bash
+npm run dev
+```
+#### Back
+```bash
+npm run start-server
+```
+Open http://localhost:3000 with your browser to see the result.
 
-Mobile conversation :
+### Thought process
 
-![](./sketches/conv-mobile.jpg)
 
-Desktop conversation :
+I started by installing Tailwind because, for a small project like this, it's easier to begin development with it, and it reduces the CSS file size. Then, I began styling my pages with static data to complete the majority of my design.
 
-![](./sketches/conv-desktop.jpg)
+After that, I thought about the architecture I could create for the API and how to fetch the data. I connected my front end with the data. To address the concern that the "infrastructure is a bit shaky," I implemented an ErrorBoundary to capture errors and redirect the user to a more user-friendly UI.
 
-</details>
+Following this, I added keyboard navigation and ARIA attributes to ensure accessibility for all users. Running out of time, I conducted a test, but it's not very satisfactory and can be significantly improved.
 
-### API :
+In a more global context, I modified the data in the database to align with my vision and added some UI features such as pictures. For the "send message" feature, I chose to make it static just to visualize its appearance and observe the processing. I simulated the sending of the token in the API calls to enhance security.
 
-You can find the API swagger file in `docs/api-swagger.yaml`.
+#### To test other users you can modify th return value of the file:
+```bash
+getLoggedUserId.ts
+```
 
-For a better readibility, you can view it on [https://leboncoin.tech/frontend-technical-test/](https://leboncoin.tech/frontend-technical-test/).
+#### It took me approximately 6 hours to comprehend and complete the task.
 
----
 
-## Bonus 1 :
-
-We provide some conversation samples, but can you improve the app so the user can now create new conversations ?
-
-## Bonus 2 :
-
-Our infrastructure is a bit shaky.. Sometimes the servers are crashing. “It’s not you, it’s me”, but maybe you can display something nice to warn the user and handle it gracefully.
-
-## Do you want to make the app even better ?
-
-Feel free to make as many improvements as you like.
-We love creativity and technical challenges.
-
-If you are out of ideas, here are some thoughts :
-
-- As we want to reach our users anywhere, we need to make sure the app is performing well. What can you do to make it really fast ?
-
-- Our goal is to support everybody in the country, including people with disabilities. As a good citizen and a good developer, can you make sure the app is accessible for everyone ?
-
-- We all love to relax after a hard day’s work. It would be a shame if we didn’t feel confident enough about the upcoming automatic deployment. Are you sure everything has been tested thoroughly ?
