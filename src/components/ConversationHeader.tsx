@@ -9,8 +9,8 @@ type ConversationHeaderProps = {
 };
 
 const ConversationHeader: React.FC<ConversationHeaderProps> = ({
-  name,
-  imageSrc,
+  name = "User",
+  imageSrc = "assets/profil1.webp",
 }) => {
   return (
     <div>
